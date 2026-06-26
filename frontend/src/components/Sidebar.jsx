@@ -15,6 +15,7 @@ const Sidebar = () => {
     { path: '/', label: 'Dashboard', icon: '📊' },
     { path: '/ledgers', label: 'Ledgers', icon: '📒' },
     { path: '/stock-items', label: 'Stock Items', icon: '📦' },
+    { path: '/vouchers', label: 'Vouchers', icon: '🧾' },
   ]
 
   return (
