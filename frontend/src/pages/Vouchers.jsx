@@ -84,6 +84,23 @@ const Vouchers = () => {
     CANCELLED: 'bg-red-100 text-red-700',
   }
 
+  const downloadPdf = (inv) => {
+    fetch(`http://localhost:8080/api/invoices/${inv.id}/pdf`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+    .then(res => res.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `invoice-${inv.invoiceNumber}.pdf`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      window.URL.revokeObjectURL(url)
+    })
+  }
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
@@ -202,11 +219,12 @@ const Vouchers = () => {
                   <th className="text-left text-xs font-medium text-gray-500 px-6 py-4">Date</th>
                   <th className="text-left text-xs font-medium text-gray-500 px-6 py-4">Amount</th>
                   <th className="text-left text-xs font-medium text-gray-500 px-6 py-4">Status</th>
+                  <th className="text-left text-xs font-medium text-gray-500 px-6 py-4">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {invoices.length === 0 ? (
-                  <tr><td colSpan="6" className="text-center text-gray-400 text-sm py-8">No vouchers found</td></tr>
+                  <tr><td colSpan="7" className="text-center text-gray-400 text-sm py-8">No vouchers found</td></tr>
                 ) : (
                   invoices.map((inv) => (
                     <tr key={inv.id} className="border-b border-gray-50 hover:bg-gray-50">
@@ -223,6 +241,14 @@ const Vouchers = () => {
                         <span className={`text-xs px-2 py-1 rounded-full font-medium ${statusColors[inv.status]}`}>
                           {inv.status}
                         </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <button
+                          onClick={() => downloadPdf(inv)}
+                          className="text-blue-600 hover:text-blue-800 text-xs font-medium"
+                        >
+                          Download PDF
+                        </button>
                       </td>
                     </tr>
                   ))
