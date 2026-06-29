@@ -15,3 +15,7 @@ spring:
 jwt:
   secret: sR6tiDCqgmUWHNmpRKQrqvZZ6YfLQVSaysud9sNLG6U=
   expiration: 86400000
+
+groq:
+  api:
+    key: ${GROQ_API_KEY}

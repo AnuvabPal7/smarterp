@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import Ledgers from './pages/Ledgers'
 import StockItems from './pages/StockItems'
 import Vouchers from './pages/Vouchers'
+import Reports from './pages/Reports'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="ledgers" element={<Ledgers />} />
           <Route path="stock-items" element={<StockItems />} />
           <Route path="vouchers" element={<Vouchers />} />
+          <Route path="reports" element={<Reports />} />
         </Route>
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>

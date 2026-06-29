@@ -12,11 +12,12 @@ const Sidebar = () => {
   }
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: '📊' },
-    { path: '/ledgers', label: 'Ledgers', icon: '📒' },
-    { path: '/stock-items', label: 'Stock Items', icon: '📦' },
-    { path: '/vouchers', label: 'Vouchers', icon: '🧾' },
-  ]
+  { path: '/', label: 'Dashboard', icon: '📊' },
+  { path: '/ledgers', label: 'Ledgers', icon: '📒' },
+  { path: '/stock-items', label: 'Stock Items', icon: '📦' },
+  { path: '/vouchers', label: 'Vouchers', icon: '🧾' },
+  { path: '/reports', label: 'Reports', icon: '📈' },
+]
 
   return (
     <div className="w-64 bg-gray-900 text-white min-h-screen flex flex-col">
