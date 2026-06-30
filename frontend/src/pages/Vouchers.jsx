@@ -85,7 +85,7 @@ const Vouchers = () => {
   }
 
   const downloadPdf = (inv) => {
-    fetch(`http://localhost:8080/api/invoices/${inv.id}/pdf`, {
+    fetch(`http://smarterp-qpj9.onrender.com/api/invoices/${inv.id}/pdf`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(res => res.blob())
