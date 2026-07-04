@@ -2,6 +2,7 @@ package com.smarterp.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Entity
 @Table(name = "stock_items")
@@ -32,4 +33,7 @@ public class StockItem {
 
     @Column(nullable = false)
     private String unit;
+
+    @OneToMany(mappedBy = "stockItem", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<InvoiceItem> invoiceItems;
 }

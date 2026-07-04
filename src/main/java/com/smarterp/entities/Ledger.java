@@ -2,6 +2,7 @@ package com.smarterp.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ledgers")
@@ -27,6 +28,9 @@ public class Ledger {
 
     @Column(nullable = false)
     private Double currentBalance;
+
+    @OneToMany(mappedBy = "ledger", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Invoice> invoices;
 
     public enum LedgerType {
         CUSTOMER, SUPPLIER, EXPENSE, INCOME
