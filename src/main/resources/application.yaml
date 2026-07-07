@@ -13,7 +13,7 @@ spring:
     show-sql: true
 
 jwt:
-  secret: sR6tiDCqgmUWHNmpRKQrqvZZ6YfLQVSaysud9sNLG6U=
+  secret: ${JWT_SECRET}
   expiration: 86400000
 
 groq:
