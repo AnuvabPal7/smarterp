@@ -202,10 +202,3 @@ Business data (total sales, purchases, profit/loss, stock counts, low stock aler
 | Reports | PDF Invoice |
 |---------|-------------|
 | AI-powered insights | Downloadable A4 invoice |
-
----
-
-## Built During
-Labmentix Internship Training Program — SmartERP Project (Java Track)
-
----
