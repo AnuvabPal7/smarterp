@@ -1,21 +1,22 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://aws-1-ap-northeast-1.pooler.supabase.com:6543/postgres?sslmode=require&user=postgres.rgycsurqbyesaeehqvdz&password=${SE_PASSWORD}&prepareThreshold=0
-    username: postgres.rgycsurqbyesaeehqvdz
-    password: ${SE_PASSWORD}
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
+  spring:
+    datasource:
+      url: jdbc:postgresql://ep-cool-fire-b37v0j7z-pooler.c-4.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      username: neondb_owner
+      password: ${SE_PASSWORD}
+      driver-class-name: org.postgresql.Driver
+
+    jpa:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: true
 
-jwt:
-  secret: ${JWT_SECRET}
-  expiration: 86400000
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration: 86400000
 
-groq:
-  api:
-    key: ${GROQ_API_KEY}
+  groq:
+    api:
+      key: ${GROQ_API_KEY}
